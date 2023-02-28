@@ -1,9 +1,9 @@
-import fs from "fs";
+import Cat from "../models/kitten.model";
+
 
 export default class Kittens {
-  print(req, res) {
-    const data = fs.readFileSync("./data_kittens/kittens.json", "utf-8");
-    const kittens = JSON.parse(data);
+  async print(req, res) {
+    const kittens = await Cat.find({});
     res.render("index", { kittens });
   }
 }

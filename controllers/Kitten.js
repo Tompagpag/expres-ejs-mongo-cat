@@ -1,10 +1,9 @@
-import fs from "fs";
+import Cat from "../models/kitten.model";
 
 export default class Kitten {
-  print(req, res) {
+  async print(req, res) {
     const { id } = req.params;
-    const data = fs.readFileSync(`./data_kittens/${id}.json`, "utf-8");
-    const kitten = JSON.parse(data);
+    const kitten = await Cat.findById(id);
     res.render("show", { kitten });
   }
 
@@ -12,24 +11,26 @@ export default class Kitten {
     res.render("new", {error: ''});
   }
 
-  createKitten(req, res) {
+  async createKitten(req, res) {
     try {
       const { name, description, age } = req.body;
-      const newKitten = { name, description, age };
-      const fileData = JSON.parse(
-        fs.readFileSync("./data_kittens/kittens.json")
-      );
-      const id = fileData.length;
-      newKitten.id = id;
-      fs.writeFileSync(
-        `./data_kittens/${id}.json`,
-        JSON.stringify(newKitten, null, 2)
-      );
-      fileData.push(newKitten);
-      fs.writeFileSync(
-        "./data_kittens/kittens.json",
-        JSON.stringify(fileData, null, 2)
-      );
+      const newKitten = new Cat({ name, description, age });
+
+      await newKitten.save();
+      // const fileData = JSON.parse(
+      //   fs.readFileSync("./data_kittens/kittens.json")
+      // );
+      // const id = fileData.length;
+      // newKitten.id = id;
+      // fs.writeFileSync(
+      //   `./data_kittens/${id}.json`,
+      //   JSON.stringify(newKitten, null, 2)
+      // );
+      // fileData.push(newKitten);
+      // fs.writeFileSync(
+      //   "./data_kittens/kittens.json",
+      //   JSON.stringify(fileData, null, 2)
+      // );
       res.redirect("/");
     } catch (error) {
       res.render("new", {error})

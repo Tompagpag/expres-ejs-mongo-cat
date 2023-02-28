@@ -1,42 +1,38 @@
 [
   {
-    "id": 1,
     "name": "Bob",
     "image": "https://placekitten.com/400/100",
     "age": 16,
     "description": "super cat"
   },
   {
-    "id": 2,
     "name": "Wild",
     "image": "https://placekitten.com/400/200",
     "age": 10,
     "description": "super cat"
   },
   {
-    "id": 3,
     "name": "Nyan",
     "image": "https://placekitten.com/400/300",
     "age": 12,
     "description": "super cat"
   },
   {
-    "id": 4,
     "name": "Saka",
     "image": "https://placekitten.com/400/400",
     "age": 3,
     "description": "My Saka is the best"
   },
   {
-    "id": 5,
-    "name": "aeae",
-    "description": "eaeae",
-    "age": "22"
+    "name": "Michel",
+    "image": "https://placekitten.com/400/600",
+    "description": "Wonderfull",
+    "age": 22
   },
   {
-    "name": "pag",
+    "name": "Pagz",
+    "image": "https://placekitten.com/400/500",
     "description": "joli",
-    "age": "2",
-    "id": 6
+    "age": 2
   }
 ]
