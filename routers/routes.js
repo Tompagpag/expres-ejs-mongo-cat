@@ -1,6 +1,15 @@
+import Kitten from '../controllers/Kitten';
+import Kittens from '../controllers/Kittens';
+
 export default (app) => {
-  // home and connexion
+
   app.get("/", (req, res) => {
-    res.render('index');
+    (new Kittens()).print(req, res);
+  });
+  app.get("/:id", (req, res) => {
+    (new Kitten()).print(req, res);
+  });
+  app.get("/add", (req, res) => {
+    res.render('new');
   });
 };
