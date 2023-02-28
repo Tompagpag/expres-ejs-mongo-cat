@@ -6,10 +6,13 @@ export default (app) => {
   app.get("/", (req, res) => {
     (new Kittens()).print(req, res);
   });
-  app.get("/:id", (req, res) => {
+  app.get("/kitten/:id", (req, res) => {
     (new Kitten()).print(req, res);
   });
   app.get("/add", (req, res) => {
-    res.render('new');
+    (new Kitten()).displayForm(req, res);
+  });
+  app.post("/add", (req, res) => {
+    (new Kitten()).createKitten(req, res);
   });
 };

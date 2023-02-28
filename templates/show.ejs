@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/styles.css">
-  <title>Kittens</title>
+  <title>Kitten</title>
 </head>
+
 <body>
   <div class="container">
     <nav>
       <ul>
         <li>Kittens</li>
-        <li><a class="active">Home</a></li>
-        <li><a href="http://localhost:3000/add">Add</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/add">Add</a></li>
       </ul>
     </nav>
   </div>
   <div class="container">
-      <% kittens.forEach(element => { %>
-            <div class="kitten">
-              <a href="/kitten/<%= element.id %>"><%= element.name %></a>
-              <img src="<%= element.image %>" alt="<%= element.name %>">
-            </div>
-      <% }); %>
+    <h2>
+      <%= kitten.name %>
+    </h2>
+    <p>Age :<%= kitten.age %>
+    </p>
+    <p>
+      <%= kitten.description %>
+    </p>
+    <img src="<%= kitten.image %>" alt="<%= kitten.name %>">
   </div>
 </body>
+
 </html>

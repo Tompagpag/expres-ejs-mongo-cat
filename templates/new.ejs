@@ -14,17 +14,34 @@
     <nav>
       <ul>
         <li>Kittens</li>
-        <li><a class="active">Home</a></li>
-        <li><a href="/add">Add</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a class="active" >Add</a></li>
       </ul>
     </nav>
   </div>
   <div class="container">
-    <h2><%= kitten.name %></h2>
-    <p>Age :<%= kitten.age %></p>
-    <p><%= kitten.description %></p>
-    <img src="<%= kitten.image %>" alt="<%= kitten.name %>">
+    <form action="/add" method="post">
+      <label for="name"> Name :</label>
+      <input type="text" name="name" id="name" placeholder="Nyan">
+
+      <label for="age"> Age :</label>
+      <input type="number" name="age" id="age" placeholder="4">
+
+      <label for="description"> Description :</label>
+      <textarea name="description" id="description" cols="20" rows="5" placeholder="Un chaton célèbre !"></textarea>
+
+      <label for="image"> Image :</label>
+        <input type="text" name="Image" id="image">
+
+      <input type="submit" value="ADD >">
+    </form>
   </div>
+  <% if (error) {%>
+    <div class="error">
+      <%= error %>
+    </div>
+  <% };%>
+
 </body>
 
 </html>
