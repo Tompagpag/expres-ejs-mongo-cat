@@ -3,8 +3,13 @@ import Cat from "../models/kitten.model";
 export default class Kitten {
   async print(req, res) {
     const { id } = req.params;
-    const kitten = await Cat.findById(id);
-    res.render("show", { kitten });
+    try {
+      const kitten = await Cat.findById(id);
+      res.render("show", { kitten });
+    } catch (error) {
+      console.log(error);
+      res.status(404).send(`L'entrée n°${id} est introuvable`)
+    }
   }
 
   displayForm(req, res) {
